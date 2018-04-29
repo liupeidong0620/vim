@@ -32,6 +32,11 @@ Plugin 'nvie/vim-flake8'
 "
 "GO 语言插件
 Plugin 'fatih/vim-go'
+
+"lua 脚本插件
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-lua-ftplugin'
+
 call vundle#end() " required
 filetype plugin on "required
 " 常用命令
@@ -80,6 +85,8 @@ set si
 set sw=4        " 将一个tab显示为4个空格
 set ts=4        " 每一级缩进的长度
 set mouse=a     " 开启鼠标控制
+nmap <silent> cp :set mouse=<CR>
+nmap <silent> cm :set mouse=a<CR>
 set nu          " 显示行号
 set softtabstop=4	"一次删除四个空格
 
@@ -96,6 +103,7 @@ set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 set fileencoding=utf-8
+set fileformats=unix
 
 "设置主题vim
 "colorscheme desert
