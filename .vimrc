@@ -14,7 +14,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 "安装插件{
 
-Bundle 'winmanager'
+"Bundle 'winmanager'
 Plugin 'altercation/vim-colors-solarized' "皮肤
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
@@ -32,6 +32,7 @@ Plugin 'nvie/vim-flake8'
 "
 "GO 语言插件
 Plugin 'fatih/vim-go'
+Plugin 'Blackrush/vim-gocode'
 
 "lua 脚本插件
 Plugin 'xolox/vim-misc'
@@ -96,6 +97,8 @@ set clipboard=unnamed,unnamedplus "可以从vim复制到剪切板中
 "set nobomb      " utf-8 without bom
 "set expandtab   " tab设置为空格
 "set cindent     " 针对c语言的字段缩进
+
+set nocscopeverbose " 解决cscope问题对于centos
 
 " 编码格式设置，不太懂，，，
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936

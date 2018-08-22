@@ -7,7 +7,7 @@ set cindent     " 针对c语言的字段缩进
 
 " ctats插件使用    set tag=路径/tags(ctags -R 生成的文件，生成之前要安装ctags)
 " 支持函数跳转 ctrl+] 查看定义  ctrl+o 返回  g+d 快速到局部变量  g+f去头文件
-set tag=/usr/include/tags  " c 中头文件
+"set tag=/usr/include/tags  " c 中头文件
 "cs add /home/liu/桌面/netpas/Netfits-Router/main/cscope.out /home/liu/桌面/netpas/Netfits-Router/main/
 
 "set tag=/home/liu/netpas_source/main/tags
@@ -66,5 +66,27 @@ set tag=/usr/include/tags  " c 中头文件
 "cs add /home/liu/netpas_red_sever/red-server/netpas_relayd/cscope.out /home/liu/netpas_red_sever/red-server/netpas_relayd/
 
 " dig 源码分析
-set tag=/home/liu/open_source/bind_test/bind-9.11.2/tags
-cs add /home/liu/open_source/bind_test/bind-9.11.2/cscope.out /home/liu/open_source/bind_test/bind-9.11.2
+"set tag=/home/liu/open_source/bind_test/bind-9.11.2/tags
+"cs add /home/liu/open_source/bind_test/bind-9.11.2/cscope.out /home/liu/open_source/bind_test/bind-9.11.2
+"
+"
+"set tag=/Users/liu/Desktop/share/nat_log/code_server/tags
+"ca add /Users/liu/Desktop/share/nat_log/code_server/cscope.out /Users/liu/Desktop/share/nat_log/code_server
+"
+"set tag=/home/bind-9.11.2/tags
+"cs add /home/bind-9.11.2/cscope.out /home/bind-9.11.2
+
+"set tag=/home/unbound-1.7.1/tags
+"cs add /home/unbound-1.7.1/cscope.out /home/unbound-1.7.1
+
+"set tag=/home/unbound_test/unbound-1.7.1/tags
+"cs add /home/unbound_test/unbound-1.7.1/cscope.out /home/unbound_test/unbound-1.7.1
+
+
+"set tag=/home/unbound_1/unbound-1.7.1/tags
+"cs add /home/unbound_1/unbound-1.7.1/cscope.out /home/unbound_1/unbound-1.7.1
+"set tag=/home/unbound_1/unbound_2/unbound-1.7.1/tags
+"cs add /home/unbound_1/unbound_2/unbound-1.7.1/cscope.out /home/unbound_1/unbound_2/unbound-1.7.1
+
+set tag=/home/curl_code/curl/tags
+cs add /home/curl_code/curl/cscope.out /home/curl_code/curl

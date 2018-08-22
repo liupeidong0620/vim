@@ -35,3 +35,5 @@ let g:tagbar_type_go = {
 			\ 'ctagsbin'  : 'gotags',
 			\ 'ctagsargs' : '-sort -silent'
 			\ }
+
+imap <F6> <C-x><C-o>
