@@ -24,6 +24,8 @@ Plug 'tomasr/molokai'
 " 针对c/c++ 自动生成索引，跳转代码
 " 插件基于ctags 目前使用最新的universal-ctags/ctags
 Plug 'ludovicchabant/vim-gutentags'
+" 打理gtags生成的标签
+Plug 'skywind3000/gutentags_plus'
 "
 " 代码补齐插件
 " 这个插件需要编译
@@ -310,10 +312,24 @@ endfunc
 
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 " 如果目录是一个野目录，在目录里建立一个.root 空文件，会自动生成索引
+
+"let $GTAGSLABEL = 'native-pygments'
+let $GTAGSLABEL = 'native'
+let $GTAGSCONF = '/etc/gtags.conf'
+
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
 " 所生成的数据文件的名称
 let g:gutentags_ctags_tagfile = '.tags'
+
+" 同时开启ctags 和 gtags支持
+let g:gutentags_modules = []
+if executable('ctags')
+	let g:gutentags_modules += ['ctags']
+endif
+if executable('gtags-cscope') && executable('gtags')
+	let g:gutentags_modules += ['gtags_cscope']
+endif
 
 " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
 let s:vim_tags = expand('~/.cache/tags')
@@ -323,6 +339,17 @@ let g:gutentags_cache_dir = s:vim_tags
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+" 如果使用 universal ctags 需要增加下面一行
+"let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+
+" 禁用 gutentags 自动加载 gtags 数据库的行为
+let g:gutentags_auto_add_gtags_cscope = 0
+
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
+
+"let g:gutentags_trace = 1
 
 " 检测 ~/.cache/tags 不存在就新建
 if !isdirectory(s:vim_tags)
