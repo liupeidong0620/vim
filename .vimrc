@@ -1,7 +1,7 @@
 "
 " lipeidong 私人定制vim配置
 " vim 配置针对 c/c++ python3 golang lua
-"
+" 关闭兼容模式
 set nocompatible " be iMproved ,required 去除vi一致性
 "保存全局变量
 set viminfo+=!
@@ -61,7 +61,10 @@ Plug 'mhinz/vim-signify'
 Plug 'bsdelf/bufferhint'
 " 语法检查
 Plug 'w0rp/ale'
-
+"  STL 容器模板类 unordered\_multimap 并未高亮
+"  vim 对 C++ 语法高亮支持不够好（特别是 C++11/14 新增元素）
+"  必须借由插件 vim-cpp-enhanced-highlight（https://github.com/octol/vim-cpp-enhanced-highlight ）进行增强
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " 常用命令
@@ -187,6 +190,8 @@ nmap <silent> cm :set mouse=a<CR>
 set background=dark
 colorscheme solarized
 
+" 开启语法高亮功能
+syntax enable
 "打开 vim 语法高亮
 syntax on
 "在命令模式下使用 Tab 自动补全的时候，将补全内容使用一个漂亮的单行菜单形式显示出来
@@ -205,7 +210,7 @@ set selectmode=mouse,key
 set mousemodel=popup
 "256位色
 set t_Co=256
-"设置查找字符串高亮
+"设置查找字符串高亮,高亮显示搜索结果
 set hlsearch
 "高亮光标所在行
 set cul
@@ -223,7 +228,7 @@ set cursorline
 set magic
 "打开搜索高亮模式，若搜索找到匹配项就高亮显示所有匹配项
 set hlsearch
-"打开增量搜索模式，Vim 会即时匹配你当前输入的内容，这样会给你更好的搜索反馈
+" 开启实时搜索功能
 set incsearch
 
 "设置当文件被改动时自动载入
@@ -515,5 +520,11 @@ let g:ale_cpp_cppcheck_options = '--enable=all'
 "xnoremap ic <plug>(signify-motion-inner-visual)
 "onoremap ac <plug>(signify-motion-outer-pending)
 "xnoremap ac <plug>(signify-motion-outer-visual)
+
+"=========================================
+" vim-cpp-enhanced-highlight  插件配置
+"=========================================
+
+
 
 "===========================end===============================
